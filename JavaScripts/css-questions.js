@@ -49,6 +49,8 @@ const questionElement = document.getElementById('question');
 const optionsElement = document.getElementById('options');
 const submitButton = document.getElementById('submit');
 const resultElement = document.getElementById('result');
+const nextButton = document.getElementById('next');
+const prevButton = document.getElementById('previous');
 
 let currentQuestion = 0;
 let score = 0;
@@ -65,8 +67,17 @@ function loadQuestion() {
     button.addEventListener('click', selectOption);
     optionsElement.appendChild(button);
   });
+  if (currentQuestion === 0 ||currentQuestion === quizData.length - 1) {
+    prevButton.style.display = 'none';
+  } else {
+    prevButton.style.display = 'block';
+  }
+  if (currentQuestion === quizData.length - 1) {
+    nextButton.style.display = 'none';
+  } else {
+    nextButton.style.display = 'block';
+  }
 }
-
 function selectOption(event) {
   const selectedOption = event.target.value;
   const currentQuizData = quizData[currentQuestion];
@@ -85,12 +96,35 @@ function showResult() {
   questionElement.innerText = '';
   optionsElement.innerHTML = '';
   submitButton.style.display = 'none';
+  nextButton.style.display = 'none';
+  prevButton.style.display = 'none';
   resultElement.innerText = `Your score: ${score} out of ${quizData.length}`;
 }
+
+function nextQuestion() {
+  currentQuestion++;
+  if (currentQuestion < quizData.length) {
+    loadQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function prevQuestion() {
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    loadQuestion();
+  }
+}
+
 
 loadQuestion();
 submitButton.addEventListener('click', () => {
   if (currentQuestion < quizData.length) {
-    alert('Please select an option.');
+      showResult();
   }
 });
+
+
+nextButton.addEventListener('click', nextQuestion);
+prevButton.addEventListener('click', prevQuestion);
