@@ -146,4 +146,18 @@ hr {
     background-color: #254398;
     transition: background-color 0.3s;
   }
+  .retry-button {
+    background-color: #3360de;
+    color: white;
+    font-size: 1.3rem;
+    border: 3px solid #312745;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
   
+  .retry-button:hover {
+    background-color: #254398;
+    transition: background-color 0.3s;
+  }
