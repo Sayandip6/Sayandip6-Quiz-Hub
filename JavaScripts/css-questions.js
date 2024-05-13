@@ -99,6 +99,18 @@ function showResult() {
   nextButton.style.display = 'none';
   prevButton.style.display = 'none';
   resultElement.innerText = `Your score: ${score} out of ${quizData.length}`;
+
+   const retryButton = document.createElement('button');
+  retryButton.innerText = 'Retry';
+  retryButton.classList.add('retry-button');
+  retryButton.addEventListener('click', () => {
+    currentQuestion = 0;
+    score = 0;
+    loadQuestion();
+    retryButton.remove();
+  });
+
+  resultElement.appendChild(retryButton);
 }
 
 function nextQuestion() {
