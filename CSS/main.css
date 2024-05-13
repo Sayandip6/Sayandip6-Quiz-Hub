@@ -78,9 +78,3 @@
    opacity: 50%;
    color: black;
 }
-.hero nav ul a:hover{
-    border: 1.5px solid white;
-    padding: 4px;
-    border-radius: 5px;
-
-}
