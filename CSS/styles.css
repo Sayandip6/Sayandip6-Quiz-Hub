@@ -7,6 +7,10 @@ body {
     color: white;
     margin-top: 20px;
     font-size: 1.5rem;
+    overflow-y: auto hidden;
+  }
+  body::-webkit-scrollbar {
+     display: none;
   }
   .hero i{
     padding: 0px;
@@ -48,18 +52,17 @@ nav{
     
  }
   .container {
-    justify-content: center;
+    justify-content: center center;
     max-width: 60vw;
-    height:55vh;
-    margin: 50px auto;
+    height: 80vh;
+    margin-top: 100px;
+    margin-left: 18.2%;    
     padding: 20px;
     border: 2px solid #3360de;
     box-shadow: 0 0 0.8em  #3360de ;
     border-radius: 5px;
     background-color: #09122b;
     border-radius:50px;
-    
-    
 
   }
   #background-video {
@@ -110,42 +113,44 @@ hr {
     border-radius: 10px;
    
   }
+ 
   .option:hover {
     background-color: #254398;
     color: white;
     transition: 0.6s;
   }
-
+ 
   #result {
     margin-top: 20px;
     width: 30vw;
-   
+    display: none; 
   }
+  
  
-  #utility {
+  .utility {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 20px;
   }
-  
-  #previous,
-  #next,
-  #submit {
+
+  .utility button {
     background-color: #3360de;
-    color: white;
-    font-size: 1.3rem;
-    border: 3px solid #312745;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
+  color: white;
+  font-size: 1.3rem;
+  border: 3px solid #312745;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 10vw;
+  margin-right: 10px;
   }
+
   
-  #previous:hover,
-  #next:hover,
-  #submit:hover {
+  .utility button:hover {
     background-color: #254398;
     transition: background-color 0.3s;
   }
+  
   .retry-button {
     background-color: #3360de;
     color: white;
@@ -160,4 +165,13 @@ hr {
   .retry-button:hover {
     background-color: #254398;
     transition: background-color 0.3s;
+  }
+
+  #current-question{
+    background-color: #3360de;
+    color: white;
+    border: 3px solid #312745;
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 22%;
   }
