@@ -51,11 +51,13 @@ const submitButton = document.getElementById('submit');
 const resultElement = document.getElementById('result');
 const nextButton = document.getElementById('next');
 const prevButton = document.getElementById('previous');
+const currentQuestionElement = document.getElementById('current-question');
 
 let currentQuestion = 0;
 let score = 0;
 
 function loadQuestion() {
+  currentQuestionElement.innerText = `Question ${currentQuestion + 1} of ${quizData.length}`;
   const currentQuizData = quizData[currentQuestion];
   questionElement.innerText = currentQuizData.question;
   optionsElement.innerHTML = "";
@@ -99,8 +101,9 @@ function showResult() {
   nextButton.style.display = 'none';
   prevButton.style.display = 'none';
   resultElement.innerText = `Your score: ${score} out of ${quizData.length}`;
+  resultElement.style.display = 'block';
 
-   const retryButton = document.createElement('button');
+  const retryButton = document.createElement('button');
   retryButton.innerText = 'Retry';
   retryButton.classList.add('retry-button');
   retryButton.addEventListener('click', () => {
@@ -108,6 +111,8 @@ function showResult() {
     score = 0;
     loadQuestion();
     retryButton.remove();
+    submitButton.style.display = 'block';
+    resultElement.style.display = 'none';
   });
 
   resultElement.appendChild(retryButton);
@@ -128,7 +133,6 @@ function prevQuestion() {
     loadQuestion();
   }
 }
-
 
 loadQuestion();
 submitButton.addEventListener('click', () => {
