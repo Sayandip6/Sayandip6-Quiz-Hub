@@ -115,13 +115,35 @@ hr {
     color: white;
     transition: 0.6s;
   }
-  #submit{
-  display: none;
-  
-    
-  }
+
   #result {
     margin-top: 20px;
-    
+    width: 30vw;
+   
   }
  
+  #utility {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  #previous,
+  #next,
+  #submit {
+    background-color: #3360de;
+    color: white;
+    font-size: 1.3rem;
+    border: 3px solid #312745;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  #previous:hover,
+  #next:hover,
+  #submit:hover {
+    background-color: #254398;
+    transition: background-color 0.3s;
+  }
+  
